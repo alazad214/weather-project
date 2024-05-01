@@ -12,7 +12,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Home Screen"),
         backgroundColor: Colors.blueGrey,
-        centerTitle: true,
+        titleSpacing: 0,
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
       ),
       body: SafeArea(
           child: FutureBuilder(
@@ -29,6 +30,7 @@ class HomeScreen extends StatelessWidget {
 
                 return const Center(child: CircularProgressIndicator());
               })),
+      drawer: Drawer(),
     );
   }
 }

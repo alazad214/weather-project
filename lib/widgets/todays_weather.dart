@@ -39,7 +39,30 @@ class TodaysWeather extends StatelessWidget {
                   )
                 ],
               ),
-              Text(weatherModel!.current!.lastUpdated.toString())
+              Text(
+                weatherModel!.current!.lastUpdated.toString(),
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.network(
+                        "https:${weatherModel!.current!.condition!.icon.toString()}"),
+                    Text(
+                      weatherModel!.current!.tempC!.round().toString(),
+                      style: const TextStyle(
+                          color: Colors.black45,
+                          fontSize: 35,
+                          fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         )
