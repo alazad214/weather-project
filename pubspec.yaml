@@ -39,6 +39,7 @@ dependencies:
   flutter_weather_bg_null_safety:
   cached_network_image:
   lottie: ^3.1.0
+  intl: ^0.19.0
 
 
 dev_dependencies:
