@@ -19,6 +19,7 @@ class WeatherServies {
         throw "No Data";
       }
     } catch (e) {
+      print(e.toString());
       throw e.toString();
     }
   }
