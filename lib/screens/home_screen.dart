@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Screen"),
+        title: const Text("আমার আবহাওয়া"),
         backgroundColor: Colors.blueGrey,
         titleSpacing: 0,
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 }
 
                 if (snapshot.hasError) {
-                  return const Center(child: Text("Error"));
+                  return const Center(child: CircularProgressIndicator(color: Colors.red,));
                 }
 
                 return const Center(child: CircularProgressIndicator());

@@ -14,9 +14,9 @@ class TodaysWeather extends StatelessWidget {
     return Stack(
       children: [
         WeatherBg(
-            weatherType: WeatherType.dusty,
+            weatherType: WeatherType.foggy,
             width: double.infinity,
-            height: 250),
+            height: 300),
         SizedBox(
           child: Column(
             children: [
@@ -27,14 +27,14 @@ class TodaysWeather extends StatelessWidget {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.location_on,
-                        color: Colors.black,
-                        size: 30,
+                        color: Colors.indigoAccent,
+                        size: 50,
                       )),
                   Text(
                     weatherModel!.location!.name.toString(),
                     style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
+                        color: Colors.white,
+                        fontSize: 60,
                         fontWeight: FontWeight.w600),
                   )
                 ],
@@ -42,26 +42,53 @@ class TodaysWeather extends StatelessWidget {
               Text(
                 weatherModel!.current!.lastUpdated.toString(),
                 style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500),
+                    color: Colors.blueGrey,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.network(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 5),
+                    decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.4),
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(50),
+                            bottomRight: Radius.circular(50))),
+                    child: Image.network(
                         "https:${weatherModel!.current!.condition!.icon.toString()}"),
-                    Text(
+                  ),
+                  Container(
+                      padding: const EdgeInsets.only(
+                          left: 30, right: 30, top: 5, bottom: 5),
+                      decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.4),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(30))),
+                      child: Text(
+                        weatherModel!.current!.condition!.text.toString(),
+                        style: const TextStyle(color: Colors.limeAccent),
+                      )),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.4),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(50),
+                            bottomLeft: Radius.circular(50))),
+                    child: Text(
                       weatherModel!.current!.tempC!.round().toString(),
                       style: const TextStyle(
-                          color: Colors.black45,
-                          fontSize: 35,
-                          fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
+                          color: Colors.white,
+                          fontSize: 45,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ],
               )
             ],
           ),
