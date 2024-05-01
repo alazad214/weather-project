@@ -14,10 +14,11 @@ class TodaysWeather extends StatelessWidget {
     return Stack(
       children: [
         WeatherBg(
-            weatherType: WeatherType.foggy,
+            weatherType: WeatherType.heavyRainy,
             width: double.infinity,
             height: 300),
         SizedBox(
+          height: 300,
           child: Column(
             children: [
               Row(
@@ -89,6 +90,58 @@ class TodaysWeather extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              const Spacer(),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 25),
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.2),
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(35),
+                        topRight: Radius.circular(35))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        const Text(
+                          "আর্দ্রতা",
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          weatherModel!.current!.humidity.toString(),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "বায়ুপ্রবাহ",
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          weatherModel!.current!.windKph.toString(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),
