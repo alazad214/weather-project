@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_project/models/weather_model.dart';
 import 'package:weather_project/servies/weather_servies.dart';
+import 'package:weather_project/widgets/hour_weather_list.dart';
 import 'package:weather_project/widgets/todays_weather.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,20 +18,43 @@ class HomeScreen extends StatelessWidget {
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
       ),
       body: SafeArea(
-          child: FutureBuilder(
-              future: WeatherServies().weatherModelServies("Dhaka"),
-              builder: (_, snapshot) {
-                if (snapshot.hasData) {
-                  WeatherModel? weatherModel = snapshot.data;
-                  return TodaysWeather(weatherModel: weatherModel);
-                }
+          child: SingleChildScrollView(
+        child: FutureBuilder(
+            future: WeatherServies().weatherModelServies("Dhaka"),
+            builder: (_, snapshot) {
+              if (snapshot.hasData) {
+                WeatherModel? weatherModel = snapshot.data;
 
-                if (snapshot.hasError) {
-                  return const Center(child: CircularProgressIndicator(color: Colors.red,));
-                }
+                return SizedBox(
+                  child: Column(
+                    children: [
+                      TodaysWeather(weatherModel: weatherModel),
+                      const SizedBox(height: 15),
+                      const Text(
+                        "প্রতি ঘন্টার আবহাওয়া",
+                        style: TextStyle(
+                            color: Colors.blueGrey,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      HourWeatherList(
+                        weatherModel: weatherModel,
+                      )
+                    ],
+                  ),
+                );
+              }
 
-                return const Center(child: CircularProgressIndicator());
-              })),
+              if (snapshot.hasError) {
+                return const Center(
+                    child: CircularProgressIndicator(
+                  color: Colors.red,
+                ));
+              }
+
+              return const Center(child: CircularProgressIndicator());
+            }),
+      )),
       drawer: Drawer(),
     );
   }

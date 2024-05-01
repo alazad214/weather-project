@@ -124,7 +124,7 @@ class TodaysWeather extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Text(
+                        const Text(
                           "বায়ুপ্রবাহ",
                           style: TextStyle(
                               color: Colors.green,
@@ -133,7 +133,7 @@ class TodaysWeather extends StatelessWidget {
                         ),
                         Text(
                           weatherModel!.current!.windKph.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 14,
                               fontWeight: FontWeight.w600),

@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http:
   flutter_weather_bg_null_safety:
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:
