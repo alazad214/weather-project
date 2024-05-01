@@ -5,6 +5,8 @@ import 'package:weather_project/servies/weather_servies.dart';
 import 'package:weather_project/widgets/hour_weather_list.dart';
 import 'package:weather_project/widgets/todays_weather.dart';
 
+import '../widgets/drawer.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -55,7 +57,7 @@ class HomeScreen extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }),
       )),
-      drawer: Drawer(),
+      drawer: CustomDrawer(),
     );
   }
 }
