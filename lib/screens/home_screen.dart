@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_project/models/weather_model.dart';
 import 'package:weather_project/servies/weather_servies.dart';
 import 'package:weather_project/utils/colors.dart';
+import 'package:weather_project/utils/search_location.dart';
 import 'package:weather_project/widgets/hour_weather_list.dart';
 import 'package:weather_project/widgets/news_card.dart';
 
@@ -10,23 +11,17 @@ import 'package:weather_project/widgets/todays_weather.dart';
 
 import '../widgets/drawer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final SearchLocation searchLocation = SearchLocation();
   final TextEditingController searchcontroller = TextEditingController();
-  final searchText = "auto:ip";
-
-  _searchDialog(
-    BuildContext context,
-  ) {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-
-            title: Text("Search Location"),
-          );
-        });
-  }
+  String searchText = "Dhaka";
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +31,25 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: AppColors.denim_,
         titleSpacing: 0,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.my_location)),
+          IconButton(
+              onPressed: () async {
+                String text = await searchLocation.searchDialog(
+                    context, searchcontroller);
+
+                setState(() {
+                  searchText = text;
+                });
+              },
+              icon: const Icon(
+                Icons.search,
+                color: Colors.green,
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.my_location,
+                color: Colors.amber,
+              )),
         ],
       ),
       body: SafeArea(

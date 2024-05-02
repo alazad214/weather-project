@@ -24,19 +24,16 @@ class TodaysWeather extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.location_on,
-                        color: Colors.indigoAccent,
-                        size: 50,
-                      )),
-                  Text(
-                    weatherModel!.location!.name.toString(),
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 60,
-                        fontWeight: FontWeight.w600),
+                  Expanded(
+                    child: Text(
+
+                      weatherModel!.location!.name.toString(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 45,
+                          fontWeight: FontWeight.w600),
+                    ),
                   )
                 ],
               ),
