@@ -40,6 +40,7 @@ dependencies:
   cached_network_image:
   lottie: ^3.1.0
   intl: ^0.19.0
+  get:
 
 
 dev_dependencies:

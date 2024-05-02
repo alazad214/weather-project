@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_project/models/weather_model.dart';
+import 'package:weather_project/utils/colors.dart';
 
 class HourWeatherList extends StatelessWidget {
   WeatherModel? weatherModel;
@@ -10,7 +11,7 @@ class HourWeatherList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: SizedBox(
         height: 120,
         child: ListView.builder(
@@ -25,7 +26,7 @@ class HourWeatherList extends StatelessWidget {
                   width: 100,
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
-                    color: Colors.blueGrey,
+                    color: AppColors.navy_,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
@@ -48,14 +49,17 @@ class HourWeatherList extends StatelessWidget {
                           ),
                           const Text(
                             "0",
-                            style: TextStyle(color: Colors.white, fontSize: 10,fontWeight: FontWeight.w600),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
                       Container(
                         height: 40,
                         decoration: const BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.black12),
+                            shape: BoxShape.circle, color: AppColors.denim_2),
                         child: Image.network(
                             "https:${weatherModel!.forecast!.forecastday![0].hour![index].condition!.icon.toString()}"),
                       ),

@@ -74,21 +74,32 @@ class TodaysWeather extends StatelessWidget {
                         style: const TextStyle(color: Colors.limeAccent),
                       )),
                   Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    padding: const EdgeInsets.only(left: 10, right: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.4),
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(50),
-                            bottomLeft: Radius.circular(50))),
-                    child: Text(
-                      weatherModel!.current!.tempC!.round().toString(),
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 45,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.only(left: 12, right: 15),
+                      decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.4),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                              bottomLeft: Radius.circular(50))),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            weatherModel!.current!.tempC!.round().toString(),
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 45,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          const Text(
+                            "0",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      )),
                 ],
               ),
               const Spacer(),
