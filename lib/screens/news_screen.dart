@@ -13,16 +13,12 @@ class NewsScreen extends StatelessWidget {
         title: const Text("আবহাওয়ার খবর"),
         titleSpacing: 0,
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              NewsCard()
-            ],
-          ),
-        ),
+      body: const SizedBox(
+        child: Column(
+          children: [
+            NewsCard(),
+          ],
+        )
       )
 
     );
