@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: const Icon(
                 Icons.search,
                 size: 40,
-                color: Colors.green,
+                color: Colors.amber,
               )),
         ],
       ),
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(height: 15),
                       const SizedBox(height: 15),
                       CustomButton(
-                        text: "আবহাওয়ার খবর",
+                        text: "Weather News BD",
                         ontap: () {
                           Get.to(() => NewsScreen());
                         },

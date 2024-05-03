@@ -87,9 +87,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/animations/weather.json
-    - assets/fonts/RobotoMono.ttf
-    - assets/images/weatherapp.png
+    - assets/animations/
+    - assets/fonts/
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -106,7 +106,7 @@ flutter:
   fonts:
     - family: font1
       fonts:
-        - asset: assets/fonts/RobotoMono.ttf
+        - asset: assets/fonts/Alinur.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

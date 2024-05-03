@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:weather_project/screens/privacy_policy.dart';
 
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({super.key});
@@ -31,9 +33,9 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          customListtile(Icons.settings, "S E T T I N G S", () {}),
-          customListtile(Icons.privacy_tip, "P O L I CY ", () {}),
-          customListtile(Icons.engineering, "D E V E L O P E R", () {}),
+          customListtile(Icons.privacy_tip, "P O L I C Y ", () {
+            Get.to(const PrivacyScreen());
+          }),
         ],
       ),
     );
