@@ -13,7 +13,7 @@ class HourWeatherList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: SizedBox(
-        height: 120,
+        height: 130,
         child: ListView.builder(
             itemCount: weatherModel!.forecast!.forecastday![0].hour!.length,
             shrinkWrap: true,
@@ -22,8 +22,8 @@ class HourWeatherList extends StatelessWidget {
             itemBuilder: (_, index) {
               return Container(
                   margin: const EdgeInsets.all(5),
-                  height: 120,
-                  width: 100,
+                  height: 130,
+                  width: 105,
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
                     color: AppColors.navy_,

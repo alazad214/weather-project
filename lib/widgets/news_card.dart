@@ -1,95 +1,73 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_project/utils/colors.dart';
 
 class NewsCard extends StatelessWidget {
   const NewsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      runSpacing: 20,
-      spacing: 20,
-      children: [
-        for (int i = 0; i < 10; i++)
-          InkWell(
-            child: Container(
-              height: 240,
-              width: 300,
-              clipBehavior: Clip.antiAlias,
-              margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.circular(5),
-              ),
+    final w = MediaQuery.of(context).size.width;
+
+    return Container(
+      height: 120,
+      clipBehavior: Clip.antiAlias,
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
+      decoration: BoxDecoration(
+          color: AppColors.navy_, borderRadius: BorderRadius.circular(8)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CachedNetworkImage(
+            height: 120,
+            width: w / 2.5,
+            fit: BoxFit.cover,
+            imageUrl:
+                "https://www.timeanddate.com/scripts/cityog.php?title=Weather%20in&tint=0x007b7a&city=Dhaka&country=Bangladesh&image=dhaka1",
+            placeholder: (context, url) =>
+                const Center(child: CircularProgressIndicator()),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          ),
+          const Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(5),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  CachedNetworkImage(
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    imageUrl:
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVcmp3rn5UK7NR3c7H1OrjF5jEGz3Rsr9MjntQrF25Nw&s",
-                    placeholder: (context, url) =>
-                        const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                  Text(
+                    "All the tech lover customers will get all the information about the tech world through our website/app.",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 5, top: 5),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.timer,
-                          size: 18,
-                          color: Colors.white60,
-                        ),
-                        Expanded(
-                          child: Text(
-                            "03:50 PM", // Update with your actual time data
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.white60,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        Icon(
-                          Icons.person,
-                          size: 18,
-                          color: Colors.white60,
-                        ),
-                        Expanded(
-                          child: Text(
-                            "Auther",
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.white60,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      "Title",
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(color: Colors.white),
-                    ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.access_time_filled_sharp,
+                        color: Colors.amber,
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        "03.05.2024",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Colors.amber,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                    ],
                   )
                 ],
               ),
             ),
           )
-      ],
+        ],
+      ),
     );
   }
 }

@@ -17,9 +17,11 @@ class CustomDrawer extends StatelessWidget {
             children: [
               Center(
                   child: SizedBox(
-                      height: 100, child: Lottie.asset("assets/animations/weather.json",))),
+                      height: 100,
+                      child: Lottie.asset(
+                        "assets/animations/weather.json",
+                      ))),
               const SizedBox(height: 10),
-
             ],
           )),
           customListtile(
@@ -29,9 +31,9 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-
           customListtile(Icons.settings, "S E T T I N G S", () {}),
-          customListtile(Icons.logout, "L O G  O U T", () {}),
+          customListtile(Icons.privacy_tip, "P O L I CY ", () {}),
+          customListtile(Icons.engineering, "D E V E L O P E R", () {}),
         ],
       ),
     );

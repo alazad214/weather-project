@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import 'package:weather_project/models/weather_model.dart';
+import 'package:weather_project/screens/news_screen.dart';
 import 'package:weather_project/servies/weather_servies.dart';
 import 'package:weather_project/utils/colors.dart';
 import 'package:weather_project/utils/search_location.dart';
+import 'package:weather_project/widgets/button.dart';
 import 'package:weather_project/widgets/hour_weather_list.dart';
-import 'package:weather_project/widgets/news_card.dart';
-
 import 'package:weather_project/widgets/todays_weather.dart';
 
 import '../widgets/drawer.dart';
@@ -42,16 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               icon: const Icon(
                 Icons.search,
+                size: 40,
                 color: Colors.green,
-              )),
-          IconButton(
-              onPressed: () {
-                searchText;
-
-              },
-              icon: const Icon(
-                Icons.my_location,
-                color: Colors.amber,
               )),
         ],
       ),
@@ -84,7 +76,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         weatherModel: weatherModel,
                       ),
                       const SizedBox(height: 15),
-                      const NewsCard()
+                      const SizedBox(height: 15),
+                      CustomButton(
+                        text: "আবহাওয়ার খবর",
+                        ontap: () {
+                          Get.to(() => NewsScreen());
+                        },
+                      ),
                     ],
                   ),
                 );
