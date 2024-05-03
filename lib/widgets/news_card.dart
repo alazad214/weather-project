@@ -13,8 +13,7 @@ class NewsCard extends StatelessWidget {
 
     return SizedBox(
       child: StreamBuilder(
-          stream:
-              FirebaseFirestore.instance.collection("news").snapshots(),
+          stream: FirebaseFirestore.instance.collection("news").snapshots(),
           builder: (_, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(

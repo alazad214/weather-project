@@ -22,9 +22,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return  GetMaterialApp(
       title: 'Weather Project',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: "font1"
+      ),
       home: Splash(),
     );
   }
