@@ -41,6 +41,11 @@ dependencies:
   lottie: ^3.1.0
   intl: ^0.19.0
   get:
+  firebase_core: ^2.27.0
+  firebase_auth:
+  firebase_storage: ^11.6.9
+  cloud_firestore: ^4.15.8
+  firebase_messaging: ^14.7.19
 
 
 dev_dependencies:

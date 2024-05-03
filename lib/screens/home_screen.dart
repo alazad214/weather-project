@@ -45,7 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.green,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                searchText;
+
+              },
               icon: const Icon(
                 Icons.my_location,
                 color: Colors.amber,
